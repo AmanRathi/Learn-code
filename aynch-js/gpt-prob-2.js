@@ -40,9 +40,9 @@ fetchProduct(101)
     });
   })
   .then(function (data) {
-    data.product.price =
+    let discountedPrice =
       data.product.price - (data.product.price * data.discount) / 100;
-    return applyTax(data.product.price).then(function (finalPrice) {
+    return applyTax(discountedPrice).then(function (finalPrice) {
       return { name: data.product.name, finalPrice: finalPrice };
     });
   })
